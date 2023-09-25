@@ -29,7 +29,8 @@ const UserInput = (event, value) => {
         <div className="input-group">
           <p>
             <label htmlFor="current-savings">Current Savings ($)</label>
-            <input onChange={(event) => inputChangeHandler('current-savings', event.target.value)} type="number" id="current-savings" />
+            <input onChange={(event) => inputChangeHandler('current-savings', event.target.value)}
+            value={userInput["current-savings"]} type="number" id="current-savings" />
           </p>
           <p>
             <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
