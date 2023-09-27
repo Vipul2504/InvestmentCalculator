@@ -3,7 +3,7 @@ const ResultTable = (props) => {
         <table className="result">
         <thead>
           <tr>
-            <th>Year</th>
+            <th>Year by now</th>
             <th>Total Savings</th>
             <th>Interest (Year)</th>
             <th>Total Interest</th>
