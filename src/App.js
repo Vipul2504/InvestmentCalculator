@@ -1,18 +1,19 @@
-import { useState } from "react";
-import Header from "./components/Header/Header";
-import ResultTable from "./components/ResultTable/ResultTable";
-import UserInput from "./components/UserInput/UserInput";
+import { useState } from 'react';
+import Header from './components/Header/Header';
+import ResultsTable from './components/ResultTable/ResultsTable';
+import UserInput from './components/UserInput/UserInput';
 
 function App() {
-  const [userInput, setUserInput] = useState(null)
+  const [userInput, setUserInput] = useState(null);
+
   const calculateHandler = (userInput) => {
-    setUserInput(userInput)
+    setUserInput(userInput);
   };
 
-  if(userInput){
-    const yearlyData = []; 
+  const yearlyData = [];
 
-    let currentSavings = +userInput['current-savings']; 
+  if (userInput) {
+    let currentSavings = +userInput['current-savings'];
     const yearlyContribution = +userInput['yearly-contribution'];
     const expectedReturn = +userInput['expected-return'] / 100;
     const duration = +userInput['duration'];
@@ -31,10 +32,10 @@ function App() {
 
   return (
     <div>
-     <Header/>
-     <UserInput onCalculate={calculateHandler}/>
-     {!userInput && <p>No Investment calculated yet</p>}
-     {userInput && <ResultTable data={yearlyData} initialInvestment={userInput['cuurent-savings']}/>}
+      <Header />
+      <UserInput onCalculate={calculateHandler} />
+      {!userInput && <p style={{textAlign: 'center'}}>No investment calculated yet.</p>}
+      {userInput && <ResultsTable data={yearlyData} initialInvestment={userInput['current-savings']} />}
     </div>
   );
 }
